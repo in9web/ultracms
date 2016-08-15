@@ -1,0 +1,54 @@
+{
+    "name": "ultracms",
+    "description": "Ultra simple content manager system",
+    "keywords": ["framework", "cms", "themes", "content manager"],
+    "license": "MIT",
+    "type": "system",
+    "homepage": "https://in9web.github.io/ultracms",
+    "authors": [
+        {
+            "name": "Wallace Silva",
+            "email": "wallace@in9web.com"
+        },
+        {
+            "name": "Gabriel Mendonça",
+            "email": "gabriel@in9web.com"
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "php -r \"copy('.env.example', '.env');\"",
+            "php -r \"mkdir('storage', 0777, TRUE);\"",
+            "php -r \"mkdir('storage/cache', 0777, TRUE);\"",
+            "php -r \"mkdir('storage/logs', 0777, TRUE);\"",
+            "php -r \"mkdir('storage/sessions', 0777, TRUE);\"",
+            "php -r \"mkdir('storage/files', 0777, TRUE);\"",
+            "php -r \"mkdir('core/database/migrations', 0777, TRUE);\"",
+            "php -r \"mkdir('core/database/seeds', 0777, TRUE);\"",
+            "php -r \"touch('storage/database.sqlite');\""
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "Ultra\\": "core",
+            "Ultra\\Model\\": "core/models",
+            "Ultra\\Console\\": "core/console",
+            "Ultra\\Console\\Command\\": "core/console/command",
+            "Ultra\\Library\\": "core/libraries"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^2.3",
+        "danielstjules/stringy": "^2.3",
+        "illuminate/database": "^5.2",
+        "monolog/monolog": "^1.20",
+        "symfony/console": "^3.1",
+        "robmorgan/phinx": "^0.6.4",
+        "illuminate/events": "^5.2",
+        "doctrine/inflector": "^1.1",
+        "league/flysystem": "^1.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^3.1"
+    }
+}
