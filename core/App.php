@@ -33,6 +33,16 @@ class App
      */
     public function bootstrap()
     {
+        /// default error log
+        $logger = Config::getConfig('logger');
+        
+        // start monolog
+        // 
+        // create a log channel
+        static::$log = new \Monolog\Logger($logger['name']);
+        static::$log->pushHandler(new \Monolog\Handler\StreamHandler($logger['path'], $logger['path']));
+        // static::$log->pushHandler(new Monolog\Handler\FirePHPHandler());
+        
         // load required helpers
         App::loadHelper(['core', 'language']);
 
@@ -41,20 +51,10 @@ class App
         
         // start session
         Session::start();
-
-        // default error log
-        $logger = Config::getConfig('logger');
         
         // ini_set('log_errors', 1);               // 1 = php save log to file
         // ini_set('error_log', $logger['path']);  // file to save logs
 
-        // start monolog
-        // 
-        // create a log channel
-        static::$log = new \Monolog\Logger($logger['name']);
-        static::$log->pushHandler(new \Monolog\Handler\StreamHandler($logger['path'], $logger['path']));
-        // static::$log->pushHandler(new Monolog\Handler\FirePHPHandler());
-        
         // Load language core
         static::getTranslation('core');
     }
