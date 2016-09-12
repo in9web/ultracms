@@ -43,6 +43,8 @@ class Session
         
         // clear flash messages from session
         static::$storage[static::$flash_key] = [];
+
+        App::$log->debug('Session Started');
     }
 
     public static function setItem($name, $data)

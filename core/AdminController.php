@@ -26,6 +26,8 @@ class AdminController
 
         }
 
+        App::$log->debug('Admin Controller Created');
+
     }
 
     public function doFileUpload($uploadname, $description='', $return_model=false)

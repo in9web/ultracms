@@ -95,6 +95,8 @@ class App
 
         static::$helpers[] = $helper;
 
+        App::$log->debug('Loaded Helper: '.$helper);
+
     }
 
     /**
@@ -132,6 +134,8 @@ class App
 
         // auto instanciate
         $class_lib = ucfirst($library);
+
+        App::$log->debug('Loaded Library: '.$library);
 
         if (!class_exists($class_lib))
             return false;

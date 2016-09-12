@@ -32,6 +32,8 @@ class Admin
 
         if (is_array($data) && count($data) > 0)
             static::$data = array_merge(static::$data, $data);
+
+        App::$log->debug('Admin Bootstrap started');
     }
 
     public static function getRequestModuleName($default='dashboard')
@@ -91,6 +93,8 @@ class Admin
             }
 
         }
+
+        App::$log->debug('Admin Modules Loaded');
     }
 
     public static function adminStartModules($module)
@@ -102,10 +106,12 @@ class Admin
         if (file_exists($module_file)) {
             
             include_once $module_file;
+            App::$log->debug('Admin Module Started - '.$module);
 
         } else {
 
             include_once $theme_admin .'/404.php';
+            App::$log->debug('Admin Module Not Found - '.$module);
             die();
 
         }
