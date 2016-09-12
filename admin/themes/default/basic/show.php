@@ -4,7 +4,7 @@ use Stringy\StaticStringy as S;
 
 get_header_admin(); ?>
 
-<h1 class="page-header"><?php echo @$module_name; ?></h1>
+<h1 class="page-header"><?php t(@$module_name); ?></h1>
 
 <table class="table table-hover table-striped table-bordered table-condensed">
     <thead>
