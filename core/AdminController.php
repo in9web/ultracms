@@ -36,7 +36,6 @@ class AdminController
         $filesystem = new Filesystem($adapter);
         
         $filename  = clear_filename($_FILES[$uploadname]['name']);
-        //$file_path = STORAGEPATH.'/uploads/'.$filename;
         $file_path = 'uploads/'.$filename;
 
         $stream = fopen($_FILES[$uploadname]['tmp_name'], 'r+');
