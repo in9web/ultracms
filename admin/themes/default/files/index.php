@@ -32,9 +32,9 @@ get_header_admin(); ?>
             <?php endif ?>
             <?php endforeach ?>
             <td>
-                <a href="<?php echo $module; ?>/show/<?php echo $item->id; ?>" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-eye-open"></i></a>
-                <a href="<?php echo $module; ?>/edit/<?php echo $item->id; ?>" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
-                <a href="<?php echo $module; ?>/delete/<?php echo $item->id; ?>" class="btn btn-default btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                <a href="<?php echo admin_url($module.'/show/'.$item->id); ?>" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-eye-open"></i></a>
+                <a href="<?php echo admin_url($module.'/edit/'.$item->id); ?>" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
+                <a href="<?php echo admin_url($module.'/delete/'.$item->id); ?>" class="btn btn-default btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
             </td>
         </tr>
         <?php endforeach ?>
