@@ -1,5 +1,10 @@
 <?php 
 
+function app_log($level, $message)
+{
+    return \Ultra\App::$log->$level($message);
+}
+
 function storage_path($path='')
 {
     return \Ultra\Config::getConfig('storage_path').($path ? DIRECTORY_SEPARATOR.ltrim($path, '/') : $path);
