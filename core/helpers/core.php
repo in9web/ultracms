@@ -59,3 +59,27 @@ function get_assets_js()
 {
     return \Ultra\Assets::getJs();
 }
+
+function clear_filename($filename)
+{
+    $filename_arr = explode('.', $filename);
+    $extension = array_pop($filename_arr);
+    $new_filename = '';
+
+    if (count($filename_arr) > 1){
+
+        foreach ($filename_arr as $item) {
+        
+            $new_filename .= \Stringy\StaticStringy::slugify($item) . '.';
+            
+        }
+
+        $new_filename .= $extension;
+
+        return $new_filename;
+
+    }
+
+    return $filename;
+
+}
