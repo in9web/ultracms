@@ -35,7 +35,7 @@ class AdminController
         $adapter = new Local(STORAGEPATH);
         $filesystem = new Filesystem($adapter);
         
-        $filename  = S::slugify($_FILES[$uploadname]['name']);
+        $filename  = clear_filename($_FILES[$uploadname]['name']);
         $file_path = STORAGEPATH.'/uploads/'.$filename;
 
         $stream = fopen($_FILES[$uploadname]['tmp_name'], 'r+');
