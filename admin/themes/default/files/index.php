@@ -25,7 +25,11 @@ get_header_admin(); ?>
         <?php foreach ($items as $item_key => $item): ?>
         <tr>
             <?php foreach ($columns as $col_key => $col): ?>
+            <?php if ($col=='filesize'): ?>
+            <td><?php echo pretty_filesize($item->$col); ?></td>
+            <?php else: ?>
             <td><?php echo $item->$col; ?></td>
+            <?php endif ?>
             <?php endforeach ?>
             <td>
                 <a href="<?php echo $module; ?>/show/<?php echo $item->id; ?>" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-eye-open"></i></a>
