@@ -23,10 +23,17 @@ get_header_admin(); ?>
     ?>
     
     <?php foreach ($columns_show as $col_key => $col): ?>
-        <tr>
-            <td><?php t((string)S::humanize($col)) ?></td>
-            <td><?php echo $item->$col ?></td>
-        </tr>
+        <?php if ($col=='filesize'): ?>
+            <tr>
+                <td><?php t((string)S::humanize($col)) ?></td>
+                <td><?php echo pretty_filesize($item->$col) ?></td>
+            </tr>
+        <?php else: ?>
+            <tr>
+                <td><?php t((string)S::humanize($col)) ?></td>
+                <td><?php echo $item->$col ?></td>
+            </tr>
+        <?php endif ?>
     <?php endforeach; ?>
 
     </tbody>
