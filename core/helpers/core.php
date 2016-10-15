@@ -60,7 +60,7 @@ function get_assets_js()
     return \Ultra\Assets::getJs();
 }
 
-function clear_filename($filename)
+function clear_filename($filename, $replacement = '-')
 {
     $filename_arr = explode('.', $filename);
     $extension = array_pop($filename_arr);
@@ -70,7 +70,7 @@ function clear_filename($filename)
 
         foreach ($filename_arr as $item) {
         
-            $new_filename .= \Stringy\StaticStringy::slugify($item) . '.';
+            $new_filename .= \Stringy\StaticStringy::slugify($item, $replacement) . '.';
             
         }
 
