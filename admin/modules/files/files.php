@@ -28,6 +28,10 @@ if ($action=='add') {
 
     $controller->show((int) Request::getRoute(2));
 
+} elseif ($action=='delete') {
+    
+    $controller->delete((int) Request::getRoute(2));
+
 } else {
 
     $controller->index();
