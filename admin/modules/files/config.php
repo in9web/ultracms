@@ -17,10 +17,10 @@ $data['model'] = '\Ultra\Model\File';
 $data['items'] = null;
 
 // Columns to show on index/list
-$data['columns'] = array('id', 'description', 'created_at');
+$data['columns'] = array('id', 'description', 'filename', 'filesize', 'created_at');
 
 // Columns to show on show item
-$data['columns_show'] = array('id', 'description', 'created_at');
+$data['columns_show'] = array('id', 'description', 'filename', 'filesize', 'full_path', 'full_url', 'created_at');
 //
 // $data['items_per_page'] = 10;
 
