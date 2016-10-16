@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>UltraCMS</title>
+    <title><?php echo ULTRANAME; ?></title>
     <meta charset="utf-8"/>
 <?php
     echo get_assets_css();
@@ -28,7 +28,7 @@
         <div class="row">
             <span class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4 cms-form-center text-center img-rounded">
 
-                <h1 class="namelogo">UltraCMS</h1>
+                <h1 class="namelogo"><?php echo ULTRANAME; ?></h1>
 
                 <?php admin_err_suc_msg() ?>
 
