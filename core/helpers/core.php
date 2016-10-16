@@ -63,10 +63,11 @@ function get_assets_js()
 function clear_filename($filename, $replacement = '-')
 {
     $filename_arr = explode('.', $filename);
-    $extension = array_pop($filename_arr);
     $new_filename = '';
 
     if (count($filename_arr) > 1){
+        
+        $extension = array_pop($filename_arr);
 
         foreach ($filename_arr as $item) {
         
