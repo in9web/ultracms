@@ -95,13 +95,13 @@ class Authentication
     {
         switch ($type) {
             case 'forgot':
-                $data['subject'] = 'UltraCMS - Forgot password';
-                $data['message'] = "Hi, {name}! \n Change your password with link above: \n ".base_url('auth/recover/'.$data['token'])."\n UltraCMS";
+                $data['subject'] = ULTRANAME.' - Forgot password';
+                $data['message'] = "Hi, {name}! \n Change your password with link above: \n ".base_url('auth/recover/'.$data['token'])."\n ".ULTRANAME;
                 break;
             
             default:
-                $data['subject'] = 'UltraCMS';
-                $data['message'] = "Hi, {name}! \n Default template email from UltraCMS";
+                $data['subject'] = ULTRANAME;
+                $data['message'] = "Hi, {name}! \n Default template email from ".ULTRANAME;
                 break;
         }
 
