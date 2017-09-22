@@ -44,6 +44,16 @@ else
 
             <div class="form-group">
                 <label for="input_<?php echo $col ?>"><?php t((string)S::humanize($col)) ?></label>
+                <?php 
+                    $ext_ = explode('.', $item->$col);
+                    $ext = end($ext_);
+                    if (in_array($ext, array('jpg', 'png', 'jpeg', '.gif'))) {
+                        printf('<img src="%s" alt="" class="img-responsive" style="max-height:150px;cursor:pointer;" onclick="document.querySelector(\'#%s\').click();">', 
+                            $item->$col,
+                            'input_'.$col
+                        );
+                    }
+                ?>
                 <input type="<?php echo $opt['input_type'] ?>" class="form-control" id="input_<?php echo $col ?>" name="<?php echo $col ?>" placeholder="<?php t((string)S::humanize($col)) ?>" value="<?php echo $item->$col ?>">
             </div>
 
