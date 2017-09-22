@@ -37,6 +37,18 @@ class AdminController
         
         $filename  = clear_filename($_FILES[$uploadname]['name']);
         $file_path = 'uploads/'.$filename;
+        $ext_      = explode('.', $filename);
+        $ext       = end($ext_);
+
+        // if file exists rename
+        while(file_exists(STORAGEPATH.'/uploads/'.$filename)) {
+
+            $filename = rtrim($filename, '.'.$ext).'_'.mt_rand(1111, 9999).'.'.$ext;
+
+        }
+
+        // update file path
+        $file_path = 'uploads/'.$filename;
 
         $stream = fopen($_FILES[$uploadname]['tmp_name'], 'r+');
         $filesystem->writeStream($file_path, $stream);
