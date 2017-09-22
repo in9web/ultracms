@@ -5,6 +5,26 @@ function app_log($level, $message)
     return \Ultra\App::$log->$level($message);
 }
 
+function config($key = null, $default = null)
+{
+    if (is_null($key)) {
+        return \Ultra\Config::getConfigs();
+    }
+
+    if (is_array($key)) {
+
+        foreach ($key as $o_key => $o_value) {
+            
+            \Ultra\Config::setConfig($o_key, $o_value);
+
+        }
+
+        return true;
+    }
+
+    return \Ultra\Config::getConfig($key, $default);
+}
+
 function storage_path($path='')
 {
     return \Ultra\Config::getConfig('storage_path').($path ? DIRECTORY_SEPARATOR.ltrim($path, '/') : $path);
