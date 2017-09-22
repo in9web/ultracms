@@ -37,13 +37,6 @@ else
 
             <div class="form-group">
                 <label for="input_<?php echo $col ?>"><?php t((string)S::humanize($col)) ?></label>
-                <input type="<?php echo $opt['input_type'] ?>" class="form-control input_bsfile" id="input_<?php echo $col ?>" name="<?php echo $col ?>" placeholder="<?php t((string)S::humanize($col)) ?>" value="<?php echo $item->$col ?>">
-            </div>
-
-        <?php else: // default text ?>
-
-            <div class="form-group">
-                <label for="input_<?php echo $col ?>"><?php t((string)S::humanize($col)) ?></label>
                 <?php 
                     $ext_ = explode('.', $item->$col);
                     $ext = end($ext_);
@@ -54,6 +47,13 @@ else
                         );
                     }
                 ?>
+                <input type="<?php echo $opt['input_type'] ?>" class="form-control input_bsfile" id="input_<?php echo $col ?>" name="<?php echo $col ?>" placeholder="<?php t((string)S::humanize($col)) ?>" value="<?php echo $item->$col ?>">
+            </div>
+
+        <?php else: // default text ?>
+
+            <div class="form-group">
+                <label for="input_<?php echo $col ?>"><?php t((string)S::humanize($col)) ?></label>
                 <input type="<?php echo $opt['input_type'] ?>" class="form-control" id="input_<?php echo $col ?>" name="<?php echo $col ?>" placeholder="<?php t((string)S::humanize($col)) ?>" value="<?php echo $item->$col ?>">
             </div>
 
