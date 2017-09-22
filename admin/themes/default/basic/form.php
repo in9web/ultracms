@@ -33,6 +33,28 @@ else
                 <textarea class="form-control" id="input_<?php echo $col ?>" name="<?php echo $col ?>" rows="3"><?php echo $item->$col ?></textarea>
             </div>
 
+        <?php elseif ($opt['input_type']=='combobox'): ?>
+
+            <div class="form-group">
+                <label for="input_<?php echo $col ?>"><?php t((string)S::humanize($col)) ?></label>
+
+                <select class="form-control" name="<?php echo $col ?>" id="input_<?php echo $col ?>">
+                    
+                    <option value="">Selecione</option>
+                    <?php $dump = ''; ?>
+                    
+                    <?php foreach ($opt['items'] as $i_key => $i_value): ?>
+                        
+                        <?php $selected = ($item->$col == $i_value) ? 'selected="selected"' : '' ?>
+                        
+                        <option value="<?php echo $i_value; ?>" <?php echo $selected ?>><?php echo $i_key; ?></option>
+
+                    <?php endforeach ?>
+                    
+                </select>
+
+            </div>
+
         <?php elseif ($opt['input_type']=='file'): ?>
 
             <div class="form-group">
