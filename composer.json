@@ -9,23 +9,11 @@
         {
             "name": "Wallace Silva",
             "email": "wallace@in9web.com"
-        },
-        {
-            "name": "Gabriel Mendonça",
-            "email": "gabriel@in9web.com"
         }
     ],
     "scripts": {
         "post-install-cmd": [
             "php -r \"copy('.env.example', '.env');\"",
-            "php -r \"mkdir('storage', 0777, TRUE);\"",
-            "php -r \"mkdir('storage/cache', 0777, TRUE);\"",
-            "php -r \"mkdir('storage/logs', 0777, TRUE);\"",
-            "php -r \"mkdir('storage/sessions', 0777, TRUE);\"",
-            "php -r \"mkdir('storage/files', 0777, TRUE);\"",
-            "php -r \"mkdir('core/database/migrations', 0777, TRUE);\"",
-            "php -r \"mkdir('core/database/seeds', 0777, TRUE);\"",
-            "php -r \"touch('storage/database.sqlite');\"",
             "php vendor/bin/phinx migrate",
             "php vendor/bin/phinx seed:run"
         ]
