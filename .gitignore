@@ -1,4 +1,4 @@
 .env
 composer.lock
-storage/
+storage/database.sqlite
 vendor/
