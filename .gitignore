@@ -1,4 +1,7 @@
 .env
 composer.lock
 storage/database.sqlite
+vendor/admin/modules/pages/
+storage/uploads/
+admin/modules/
 vendor/
