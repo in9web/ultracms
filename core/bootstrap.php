@@ -16,7 +16,7 @@ if ( file_exists(dirname(__DIR__).'/vendor/autoload.php') )
  * Load DotEnv
  */
 if (class_exists('Dotenv\Dotenv') && file_exists(dirname(__DIR__).'/.env')){
-    $dotenv = new Dotenv\Dotenv(dirname(__DIR__));
+    $dotenv = Dotenv\Dotenv::create(dirname(__DIR__));
     $dotenv->load();
 }
 
