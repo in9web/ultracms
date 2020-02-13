@@ -35,7 +35,7 @@ class CreateUserTable extends AbstractMigration
               ->addColumn('recover_token', 'string', array('null' => true))
               ->addColumn('status', 'string', array('default' => 'active')) // active, inactive, 
               ->addColumn('last_login_at', 'timestamp', array('null' => true)) // 
-              ->addColumn('created_at', 'timestamp') // autotimestamps by eloquent
+              ->addColumn('created_at', 'timestamp', array('null' => true)) // autotimestamps by eloquent
               ->addColumn('updated_at', 'timestamp', array('null' => true)) // autotimestamps by eloquent
               ->addColumn('deleted_at', 'timestamp', array('null' => true)) // eloquent softdeletes
               ->create();

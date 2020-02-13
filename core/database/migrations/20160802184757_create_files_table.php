@@ -39,7 +39,7 @@ class CreateFilesTable extends AbstractMigration
               ->addColumn('is_image', 'string', array('default' => 'no'))
               ->addColumn('hosted_by', 'string', array('default' => 'local')) // on future can change to amazon or others
               ->addColumn('user_id', 'integer') // created by this user
-              ->addColumn('created_at', 'timestamp') // autotimestamps by eloquent
+              ->addColumn('created_at', 'timestamp', array('null' => true)) // autotimestamps by eloquent
               ->addColumn('updated_at', 'timestamp', array('null' => true)) // autotimestamps by eloquent
               ->addColumn('deleted_at', 'timestamp', array('null' => true)) // eloquent softdeletes
               ->create();
