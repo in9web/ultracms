@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+// ultra.php
+
+require __DIR__.'/vendor/autoload.php';
+
+/* Load DotEnv */
+if (class_exists('Dotenv\Dotenv') && file_exists(__DIR__.'/.env')){
+    $dotenv = new Dotenv\Dotenv(__DIR__);
+    $dotenv->load();
+}
+
+// load Class config
+require_once(__DIR__.'/core/Config.php');
+
+/*
+ * Load Config File
+ */
+require_once('config.php');
+
+use Ultra\Console\Command\KeyGenerateCommand;
+use Ultra\Console\Command\MakeModelCommand;
+use Ultra\Console\Command\MakeModuleCommand;
+use Ultra\Console\Command\ClearLogsCommand;
+use Ultra\Console\Command\ServerCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+$application->add(new KeyGenerateCommand());
+$application->add(new MakeModelCommand());
+$application->add(new MakeModuleCommand());
+$application->add(new ClearLogsCommand());
+$application->add(new ServerCommand());
+$application->run();
