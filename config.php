@@ -1,6 +1,13 @@
 <?php 
 use Ultra\Config;
 
+/* Load DotEnv */
+if (class_exists('Dotenv\Dotenv') && file_exists(__DIR__.'/.env')){
+    $dotenv = Dotenv\Dotenv::create(__DIR__);
+    $dotenv->load();
+}
+
+
 /**
  * Default configurations
  */
